@@ -1,0 +1,248 @@
+@import "tailwindcss";
+
+/* ===== ATMOS DESIGN TOKENS ===== */
+:root {
+  /* Dark theme (default) */
+  --atmos-bg-primary: #0B1220;
+  --atmos-bg-secondary: #111B2E;
+  --atmos-bg-card: #17243A;
+  --atmos-bg-card-hover: #1E2D47;
+  --atmos-text-primary: #F8FAFC;
+  --atmos-text-secondary: #A8B6CC;
+  --atmos-text-muted: #6B7A8D;
+  --atmos-accent: #60A5FA;
+  --atmos-accent-hover: #3B82F6;
+  --atmos-border: rgba(255, 255, 255, 0.06);
+  --atmos-border-active: rgba(96, 165, 250, 0.3);
+
+  /* Weather condition colors */
+  --atmos-sunny: #FBBF24;
+  --atmos-rain: #38BDF8;
+  --atmos-snow: #E2E8F0;
+  --atmos-storm: #A78BFA;
+  --atmos-cloudy: #94A3B8;
+  --atmos-warning: #F97316;
+  --atmos-success: #34D399;
+  --atmos-danger: #EF4444;
+
+  /* AQI colors */
+  --atmos-aqi-good: #34D399;
+  --atmos-aqi-fair: #FBBF24;
+  --atmos-aqi-moderate: #F97316;
+  --atmos-aqi-poor: #EF4444;
+  --atmos-aqi-very-poor: #A855F7;
+
+  /* Shadows */
+  --atmos-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+  --atmos-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+
+  --background: var(--atmos-bg-primary);
+  --foreground: var(--atmos-text-primary);
+}
+
+/* Light theme */
+.light {
+  --atmos-bg-primary: #F0F4F8;
+  --atmos-bg-secondary: #FFFFFF;
+  --atmos-bg-card: #FFFFFF;
+  --atmos-bg-card-hover: #F8FAFC;
+  --atmos-text-primary: #0F172A;
+  --atmos-text-secondary: #475569;
+  --atmos-text-muted: #94A3B8;
+  --atmos-accent: #3B82F6;
+  --atmos-accent-hover: #2563EB;
+  --atmos-border: rgba(0, 0, 0, 0.08);
+  --atmos-border-active: rgba(59, 130, 246, 0.3);
+
+  --atmos-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --atmos-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+
+  --background: var(--atmos-bg-primary);
+  --foreground: var(--atmos-text-primary);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-atmos-bg: var(--atmos-bg-primary);
+  --color-atmos-bg-secondary: var(--atmos-bg-secondary);
+  --color-atmos-card: var(--atmos-bg-card);
+  --color-atmos-card-hover: var(--atmos-bg-card-hover);
+  --color-atmos-text: var(--atmos-text-primary);
+  --color-atmos-text-secondary: var(--atmos-text-secondary);
+  --color-atmos-text-muted: var(--atmos-text-muted);
+  --color-atmos-accent: var(--atmos-accent);
+  --color-atmos-accent-hover: var(--atmos-accent-hover);
+  --color-atmos-border: var(--atmos-border);
+  --color-atmos-border-active: var(--atmos-border-active);
+  --color-atmos-sunny: var(--atmos-sunny);
+  --color-atmos-rain: var(--atmos-rain);
+  --color-atmos-warning: var(--atmos-warning);
+  --color-atmos-success: var(--atmos-success);
+  --color-atmos-danger: var(--atmos-danger);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ===== BASE STYLES ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--atmos-bg-primary);
+  color: var(--atmos-text-primary);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ===== SCROLLBAR STYLES ===== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--atmos-text-muted);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--atmos-text-secondary);
+}
+
+/* Horizontal scroll container (for hourly forecast) */
+.scroll-container {
+  scrollbar-width: thin;
+  scrollbar-color: var(--atmos-text-muted) transparent;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+.scroll-container > * {
+  scroll-snap-align: start;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== WEATHER CONDITION BACKGROUNDS ===== */
+.weather-bg-clear-day {
+  background: linear-gradient(135deg, #1E3A5F 0%, #2563EB 50%, #60A5FA 100%);
+}
+
+.weather-bg-clear-night {
+  background: linear-gradient(135deg, #0B1220 0%, #1E1B4B 50%, #312E81 100%);
+}
+
+.weather-bg-cloudy {
+  background: linear-gradient(135deg, #1E293B 0%, #334155 50%, #475569 100%);
+}
+
+.weather-bg-rain {
+  background: linear-gradient(135deg, #0F172A 0%, #1E3A5F 50%, #1E40AF 100%);
+}
+
+.weather-bg-snow {
+  background: linear-gradient(135deg, #1E293B 0%, #475569 50%, #94A3B8 100%);
+}
+
+.weather-bg-storm {
+  background: linear-gradient(135deg, #0F0A1A 0%, #1E1B4B 50%, #4C1D95 100%);
+}
+
+/* Light theme condition backgrounds */
+.light .weather-bg-clear-day {
+  background: linear-gradient(135deg, #DBEAFE 0%, #93C5FD 50%, #60A5FA 100%);
+}
+
+.light .weather-bg-clear-night {
+  background: linear-gradient(135deg, #C7D2FE 0%, #818CF8 50%, #6366F1 100%);
+}
+
+.light .weather-bg-cloudy {
+  background: linear-gradient(135deg, #E2E8F0 0%, #CBD5E1 50%, #94A3B8 100%);
+}
+
+.light .weather-bg-rain {
+  background: linear-gradient(135deg, #DBEAFE 0%, #93C5FD 50%, #3B82F6 100%);
+}
+
+/* ===== CHART STYLES ===== */
+.recharts-text {
+  fill: var(--atmos-text-secondary) !important;
+  font-size: 11px;
+}
+
+.recharts-cartesian-grid line {
+  stroke: var(--atmos-border) !important;
+}
+
+.recharts-tooltip-wrapper {
+  outline: none;
+}
+
+/* ===== MAP STYLES ===== */
+.leaflet-container {
+  background: var(--atmos-bg-secondary) !important;
+  border-radius: 0.75rem;
+}
+
+.leaflet-control-zoom a {
+  background: var(--atmos-bg-card) !important;
+  color: var(--atmos-text-primary) !important;
+  border-color: var(--atmos-border) !important;
+}
+
+/* ===== FOCUS STYLES ===== */
+:focus-visible {
+  outline: 2px solid var(--atmos-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ===== TEMPERATURE BAR ===== */
+.temp-bar {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #38BDF8, #60A5FA, #FBBF24, #F97316, #EF4444);
+}
