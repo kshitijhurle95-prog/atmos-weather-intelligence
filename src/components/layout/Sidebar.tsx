@@ -10,6 +10,7 @@ import {
   Bookmark,
   Settings,
 } from 'lucide-react';
+import { useWeatherContext } from '@/context/WeatherContext';
 
 export type NavTab =
   | 'overview'
@@ -26,6 +27,9 @@ export interface SidebarProps {
 }
 
 export function Sidebar({ activeTab, onTabChange }: SidebarProps) {
+  const { weatherData } = useWeatherContext();
+  const isLive = weatherData?.source?.includes('Live');
+
   const navItems = [
     { id: 'overview', label: 'Overview', icon: LayoutDashboard },
     { id: 'hourly', label: 'Hourly Forecast', icon: Clock },
@@ -69,11 +73,13 @@ export function Sidebar({ activeTab, onTabChange }: SidebarProps) {
       {/* System Status info at bottom */}
       <div className="pt-4 border-t border-white/[0.08] px-3">
         <div className="flex items-center gap-2 mb-1.5">
-          <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="text-xs font-medium text-slate-300">OpenWeather Live</span>
+          <div className={`w-2 h-2 rounded-full ${isLive ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400 animate-ping'}`} />
+          <span className="text-xs font-medium text-slate-300">
+            {isLive ? 'OpenWeather Live' : 'Telemetry Fallback'}
+          </span>
         </div>
         <p className="text-[11px] text-slate-400 leading-tight">
-          Precision telemetry refreshed in real-time.
+          {isLive ? 'Direct OpenWeather stream active.' : 'Key propagating • Telemetry mode active.'}
         </p>
       </div>
     </aside>

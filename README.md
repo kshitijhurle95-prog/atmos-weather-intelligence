@@ -10,11 +10,11 @@
 [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 [![Tests](https://img.shields.io/badge/Tests-35%20Passed-emerald?style=for-the-badge&logo=jest&logoColor=white)](https://jestjs.io/)
-[![Deployment](https://img.shields.io/badge/Live%20Demo-Online-success?style=for-the-badge&logo=render&logoColor=white)](https://atmos-weather-intelligence-ji9p.onrender.com)
+[![Deployment](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-success?style=for-the-badge&logo=github&logoColor=white)](https://kshitijhurle95-prog.github.io/atmos-weather-intelligence/)
 [![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-blue?style=for-the-badge&logo=github&logoColor=white)](https://github.com/kshitijhurle95-prog/atmos-weather-intelligence)
 
 <p align="center">
-  🌐 <b>Live Production URL:</b> <a href="https://atmos-weather-intelligence-ji9p.onrender.com" target="_blank"><b>https://atmos-weather-intelligence-ji9p.onrender.com</b></a>
+  🌐 <b>Live GitHub Pages URL:</b> <a href="https://kshitijhurle95-prog.github.io/atmos-weather-intelligence/" target="_blank"><b>https://kshitijhurle95-prog.github.io/atmos-weather-intelligence/</b></a>
 </p>
 
 <p align="center">

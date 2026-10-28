@@ -7,10 +7,10 @@
  */
 
 import { NextRequest } from 'next/server';
-import { GET as weatherHandler } from '@/app/api/weather/route';
-import { GET as forecastHandler } from '@/app/api/forecast/route';
-import { GET as geocodingHandler } from '@/app/api/geocoding/route';
-import { GET as airQualityHandler } from '@/app/api/air-quality/route';
+import { GET as weatherHandler } from '@/server-api/weather/route';
+import { GET as forecastHandler } from '@/server-api/forecast/route';
+import { GET as geocodingHandler } from '@/server-api/geocoding/route';
+import { GET as airQualityHandler } from '@/server-api/air-quality/route';
 
 describe('Server API Route Handlers', () => {
   const originalEnv = process.env.OPENWEATHER_API_KEY;

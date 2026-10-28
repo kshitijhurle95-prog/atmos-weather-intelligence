@@ -112,7 +112,7 @@ export function WeatherProvider({ children }: { children: ReactNode }) {
         country: country ?? '',
       });
       await Promise.all([
-        weather.fetchWeather(lat, lon),
+        weather.fetchWeather(lat, lon, name, country),
         weather.fetchAirQuality(lat, lon),
       ]);
     },
