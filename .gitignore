@@ -8,32 +8,44 @@
 !.yarn/releases
 !.yarn/versions
 
+# environments and python
+/venv
+/.venv
+env/
+__pycache__/
+*.py[cod]
+
 # testing
 /coverage
 
-# next.js
+# next.js & builds
 /.next/
 /out/
-
-# production
 /build
+/dist
 
-# misc
+# misc & OS
 .DS_Store
+Thumbs.db
 *.pem
 
-# debug
+# debug logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files
+# env files and secrets
 .env
 .env*.local
 !.env.example
 
-# vercel
+# databases
+*.db
+*.sqlite
+*.sqlite3
+
+# vercel & cloud
 .vercel
 
 # typescript

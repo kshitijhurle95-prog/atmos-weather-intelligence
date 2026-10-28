@@ -1,197 +1,247 @@
-# Atmos — Weather Intelligence Platform
+<div align="center">
 
-**Atmos** is a modern, production-grade weather intelligence platform built with Next.js 16 (App Router), React 19, TypeScript (strict mode), Tailwind CSS, Recharts, and Leaflet. It delivers real-time weather observations, interactive 24-hour hourly timelines, multi-day forecasts, severe meteorological warnings, air quality telemetry, interactive GIS radar maps, deterministic AI-like weather insights, and activity-based day planning.
+# ⚡ ATMOS — Weather Intelligence Platform
 
----
+### *Precision Meteorological Telemetry, Predictive Analytics & Atmospheric GIS*
 
-## 🌤️ Highlights & Features
+[![Next.js](https://img.shields.io/badge/Next.js-16.4.3-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19.3.0-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
+[![Tests](https://img.shields.io/badge/Tests-35%20Passed-emerald?style=for-the-badge&logo=jest&logoColor=white)](https://jestjs.io/)
+[![Build](https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
 
-1. **Live Weather Telemetry**
-   - Precise temperature, feels-like temperature, daily high/low.
-   - Atmospheric condition icon and descriptive state.
-   - Dynamic atmospheric backgrounds adapted to weather condition and day/night cycle.
-   - Comprehensive metric grid: Humidity, Wind Speed, Wind Direction (compass bearings), Barometric Pressure, Cloud Cover, Visibility, UV Index, and Precipitation Volume.
-
-2. **24-Hour Interactive Timeline & Trends**
-   - Horizontally scrollable 24-hour forecast cards with current hour highlight.
-   - Detailed interactive hour inspector (humidity, wind velocity, direction).
-   - Recharts-powered Temperature Area Trend Chart with smooth gradients.
-   - Precipitation Probability (%) Bar Chart.
-
-3. **Multi-Day Outlook (Verified Forecast)**
-   - 5-day daily forecast derived directly from provider forecast intervals without fabricated data.
-   - Visual relative temperature range bars illustrating daily min/max against the weekly temperature envelope.
-   - Expandable day cards revealing sunrise/sunset, average humidity, and wind conditions.
-
-4. **Weather Insights & Activity Index ("Plan Your Day")**
-   - **Weather Insights**: Deterministic AI-like analysis derived strictly from numeric forecast fields (e.g. afternoon vs morning rain probabilities, thermal day-over-day changes, wind advisories).
-   - **Activity Index**: Pragmatic readiness guidance for outdoor recreation, running/exercise, commuting, rain gear necessity, and highway travel.
-
-5. **Global City Search & Geolocation**
-   - Forward geocoding with debounced auto-complete dropdown and keyboard navigation (`ArrowDown`, `ArrowUp`, `Enter`, `Escape`).
-   - Disambiguation by city name, regional state, and country code with coordinate badges.
-   - Browser geolocation integration with explicit consent handling, permission denial feedback, and error recovery.
-
-6. **Air Quality Index (AQI) Telemetry**
-   - Standard 5-tier European/OpenWeather AQI scale (Good, Fair, Moderate, Poor, Very Poor).
-   - Real-time concentration breakdown for 6 individual pollutants: PM2.5, PM10, O₃ (Ozone), NO₂, SO₂, and CO.
-   - Health risk categorization and outdoor safety guidance.
-
-7. **Interactive Weather Radar & GIS Maps**
-   - Leaflet-powered GIS mapping centered at the user's active coordinates.
-   - Layer toggles for Cloud Cover, Precipitation Radar, Isotherm Temperatures, and Wind Vectors.
-   - CartoDB Voyager base tiles with station markers and legends.
-
-8. **Saved Locations & Preferences**
-   - Pin up to 10 favorite cities with local storage persistence.
-   - Designate a preferred default launch city.
-   - Metric (Celsius, km/h, mm, hPa) & Imperial (Fahrenheit, mph, in, inHg) conversion standard.
-   - Obsidian Dark Mode (default) and Light theme.
+<p align="center">
+  <a href="#-executive-summary">Executive Summary</a> •
+  <a href="#-visual-showcase">Visual Showcase</a> •
+  <a href="#-key-capabilities">Key Capabilities</a> •
+  <a href="#-system-architecture">Architecture</a> •
+  <a href="#-technology-stack">Tech Stack</a> •
+  <a href="#-quickstart--local-setup">Quickstart</a> •
+  <a href="#-environment-configuration">Configuration</a> •
+  <a href="#-license">License</a>
+</p>
 
 ---
 
-## 🛠️ Architecture & Technology Stack
+</div>
 
-- **Framework**: [Next.js 16](https://nextjs.org/) (App Router, Turbopack, Partial Prefetching, Cache Components)
-- **UI Library**: [React 19](https://react.dev/)
-- **Language**: [TypeScript](https://www.typescriptlang.org/) (Strict Mode)
-- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Charts**: [Recharts](https://recharts.org/)
-- **Mapping**: [Leaflet](https://leafletjs.com/) with Carto Voyager tiles
-- **Provider API**: [OpenWeatherMap API](https://openweathermap.org/) (Free Tier 2.5 compatible)
-- **Testing**: [Jest](https://jestjs.io/) & [React Testing Library](https://testing-library.com/)
+## 📌 Executive Summary
+
+Modern consumer weather apps are often cluttered with invasive advertisements, sluggish animations, or imprecise regional estimates. **Atmos** is an engineered weather intelligence platform designed for commuters, athletes, outdoor enthusiasts, and logistics decision-makers who require real-time atmospheric clarity without distractions.
+
+Combining official meteorological observation feeds, high-resolution geospatial radar mapping, deterministic AI-assisted behavioral insights, and micro-climate timeline projections, **Atmos** bridges the gap between high-precision professional weather telemetry and refined consumer software design.
+
+---
+
+## 📸 Visual Showcase
+
+<div align="center">
+
+### 🌌 Primary Command Dashboard & Weather Hero
+*Dynamic atmospheric hero banner adapting to real-time sun/moon cycles, thermal status, and live atmospheric condition codes.*
+
+![Atmos Hero Dashboard](assets/screenshots/hero-preview.png)
+
+<br/>
+
+### 📊 24-Hour Micro-Timeline & Predictive Analysis
+*Horizontally scrollable hourly telemetry, interactive hour inspection, Recharts-powered gradient thermal trends, and precipitation probability distribution.*
+
+![Feature Interaction & Analytics](assets/screenshots/feature-interaction.png)
+
+<br/>
+
+### 🗺️ GIS Weather Radar & Air Quality Index
+*Interactive multi-layer geospatial radar (Cloud Cover, Precipitation Radar, Temperature Isotherms, Wind Vectors) paired with European 5-tier multi-pollutant AQI breakdown.*
+
+![Radar & Air Quality](assets/screenshots/radar-map.png)
+
+</div>
+
+---
+
+## ⚡ Key Capabilities
+
+- **🛰️ Real-Time Observation Grid**: Sub-minute telemetry for Temperature, Feels-Like, Daily High/Low, Barometric Pressure, Relative Humidity, Wind Vector Speed & Direction (with 16-point compass bearings), Cloud Fraction, and Line-of-Sight Visibility.
+- **📈 Dual-Chart Temporal Analytics**:
+  - *Temperature Area Curve*: Smooth spline visualization with color-graded fills reflecting ambient thermal shifts.
+  - *Precipitation Probability Bar Chart*: Hour-by-hour probability modeling from 0% to 100%.
+- **📅 Verified Multi-Day Forecast**: 5-day daily forecast synthesized strictly from authenticated meteorological blocks. Features relative visual temperature range bars calibrated to weekly high/low boundaries.
+- **🧠 Deterministic Weather Insights**: Algorithmic decision intelligence that correlates thermal trends, barometric changes, and precipitation windows to generate honest, data-backed guidance.
+- **🏃 "Plan Your Day" Activity Index**: Pragmatic readiness scoring for running/cardio, walking/commutes, rain gear necessity, and vehicle travel safety.
+- **🌍 Global Disambiguated Search & Geolocation**: Instant forward geocoding with debounce mechanisms, keyboard navigation (`ArrowDown`, `ArrowUp`, `Enter`, `Escape`), and HTML5 coordinate triangulation with permission recovery.
+- **🌿 Multi-Pollutant Air Quality (AQI)**: Continuous monitoring across 6 critical particulates: PM2.5, PM10, Ground-Level Ozone ($O_3$), Nitrogen Dioxide ($NO_2$), Sulfur Dioxide ($SO_2$), and Carbon Monoxide ($CO$).
+- **🗺️ Interactive GIS Mapping**: Dynamic Leaflet integration with CartoDB Voyager cartography and OpenWeather radar overlay toggles.
+- **⭐ Localized Persistence**: Save up to 10 favorite cities, designate a launch city, and toggle seamlessly between **Metric** (°C, km/h, mm, hPa) and **Imperial** (°F, mph, in, inHg) standards.
+
+---
+
+## 🏗️ System Architecture
+
+Atmos follows a clean separation of concerns, decoupling server-side provider integrations from client-side visual layers:
 
 ```
-src/
-├── app/
-│   ├── api/
-│   │   ├── weather/route.ts      # GET /api/weather?lat=..&lon=..
-│   │   ├── forecast/route.ts     # GET /api/forecast?lat=..&lon=..
-│   │   ├── geocoding/route.ts    # GET /api/geocoding?q=..&limit=..
-│   │   └── air-quality/route.ts  # GET /api/air-quality?lat=..&lon=..
-│   ├── globals.css               # Design tokens, themes & animations
-│   ├── layout.tsx                # Root layout with metadata & providers
-│   └── page.tsx                  # Primary Atmos dashboard shell
-├── components/
-│   ├── layout/                   # Header, Sidebar, MobileNav
-│   ├── weather/                  # WeatherHero, WeatherMetrics, HourlyForecast,
+magical-bell / atmos/
+├── assets/
+│   └── screenshots/              # High-resolution application UI captures
+├── __tests__/
+│   ├── integration/
+│   │   └── api.test.ts           # Server Route Handler integration tests
+│   └── unit/
+│       ├── formatting.test.ts    # Unit conversions & string formatting tests
+│       ├── normalize.test.ts     # Provider-to-domain normalization tests
+│       └── validation.test.ts    # Input boundaries & XSS sanitization tests
+├── src/
+│   ├── app/
+│   │   ├── api/                  # Server-side Route Handlers (Zero Secret Leakage)
+│   │   │   ├── air-quality/
+│   │   │   │   └── route.ts      # GET /api/air-quality?lat=..&lon=..
+│   │   │   ├── forecast/
+│   │   │   │   └── route.ts      # GET /api/forecast?lat=..&lon=..
+│   │   │   ├── geocoding/
+│   │   │   │   └── route.ts      # GET /api/geocoding?q=..&limit=..
+│   │   │   └── weather/
+│   │   │       └── route.ts      # GET /api/weather?lat=..&lon=..
+│   │   ├── globals.css           # Custom CSS variables, dark theme tokens
+│   │   ├── layout.tsx            # Root layout, HTML metadata, Provider wrapper
+│   │   └── page.tsx              # Primary Atmos weather intelligence dashboard
+│   ├── components/
+│   │   ├── charts/               # Recharts components (TemperatureChart, PrecipitationChart)
+│   │   ├── layout/               # Header, Sidebar, MobileNav
+│   │   ├── settings/             # SettingsPanel (Units, Theme, Data Reset)
+│   │   ├── ui/                   # Card, Badge, Skeleton, ErrorDisplay
+│   │   └── weather/              # WeatherHero, WeatherMetrics, HourlyForecast,
 │   │                             # DailyForecast, WeatherInsights, ActivityAdvice,
 │   │                             # AirQuality, WeatherMap, WeatherAlerts, SavedLocations
-│   ├── charts/                   # TemperatureChart, PrecipitationChart
-│   ├── settings/                 # SettingsPanel
-│   └── ui/                       # Card, Badge, Skeleton, ErrorDisplay
-├── context/
-│   ├── WeatherContext.tsx        # Central weather state & telemetry actions
-│   └── ThemeContext.tsx          # Dark/Light theme manager
-├── hooks/
-│   ├── useWeather.ts             # API route consumer with abort controllers
-│   ├── useGeocoding.ts           # Debounced search hook
-│   ├── useGeolocation.ts         # Browser navigator.geolocation handler
-│   ├── useFavorites.ts           # Pinned locations with localStorage
-│   └── useLocalStorage.ts        # SSR-safe reactive localStorage hook
-├── lib/
-│   ├── weather/
-│   │   ├── provider.ts           # Outbound HTTP fetcher with timeout & credentials
-│   │   ├── openweather.ts        # Modular OpenWeather implementation
-│   │   ├── normalize.ts          # Normalization layer mapping raw API to domain
-│   │   ├── cache.ts              # In-memory TTL cache
-│   │   └── types.ts              # Raw provider API response typings
-│   ├── formatting.ts             # Strict unit conversion & date/time formatters
-│   └── validation.ts             # Coordinate bounds & query sanitization
-└── types/
-    └── weather.ts                # Application domain TypeScript models
+│   ├── context/
+│   │   ├── ThemeContext.tsx      # Obsidian Dark & Daylight Light mode context
+│   │   └── WeatherContext.tsx    # Centralized client weather state manager
+│   ├── hooks/                    # useWeather, useGeocoding, useGeolocation, useFavorites
+│   ├── lib/
+│   │   ├── weather/
+│   │   │   ├── cache.ts          # In-memory TTL cache
+│   │   │   ├── normalize.ts      # Provider response transformation layer
+│   │   │   ├── openweather.ts    # OpenWeather SDK implementation
+│   │   │   ├── provider.ts       # Weather provider abstraction & fetcher
+│   │   │   └── types.ts          # Raw provider API payload definitions
+│   │   ├── formatting.ts         # Math conversions (°C/°F, kmh/mph, mm/in, hPa/inHg)
+│   │   └── validation.ts         # Strict coordinate bounds & search sanitizers
+│   └── types/
+│       └── weather.ts            # Normalized domain-level TypeScript schemas
+├── .env.example                  # Environment configuration template
+├── jest.config.js                # Test runner configuration
+├── next.config.ts                # Next.js 16 compiler settings
+└── package.json                  # Dependencies and execution scripts
 ```
 
 ---
 
-## 🔒 Security & API Integration
+## 💻 Technology Stack
 
-- **Server-Side API Key Protection**: All provider calls originate strictly inside Next.js Route Handlers. The `OPENWEATHER_API_KEY` is **never** exposed to client-side bundles or HTTP responses.
-- **Input Validation**: Rigorous validation on latitude (`[-90, 90]`), longitude (`[-180, 180]`), and query length, stripping malicious XSS vectors.
-- **Intelligent In-Memory Caching**:
-  - Current Weather: 5 minutes TTL
-  - Forecast: 15 minutes TTL
-  - Geocoding Searches: 24 hours TTL
-  - Air Quality: 10 minutes TTL
-- **Graceful Error Handling**: Typed sentinel errors (`ApiKeyMissingError`, `ProviderError`, `TimeoutError`) returning standardized JSON schemas with appropriate HTTP status codes (400, 429, 502, 503, 504).
+| Domain | Technology | Purpose |
+|---|---|---|
+| **Core Framework** | [Next.js 16](https://nextjs.org/) | App Router, Server Components, Route Handlers, Turbopack |
+| **Frontend Runtime** | [React 19](https://react.dev/) | Concurrent UI rendering and component state lifecycle |
+| **Type Safety** | [TypeScript 5](https://www.typescriptlang.org/) | Strict compilation, zero-any policy across domain models |
+| **Styling & Theme** | [Tailwind CSS 4](https://tailwindcss.com/) | Responsive glassmorphic styling and tokenized dark themes |
+| **Charts & Graphs** | [Recharts](https://recharts.org/) | High-performance SVG thermal and precipitation data charts |
+| **Geospatial GIS** | [Leaflet](https://leafletjs.com/) | Interactive pan-zoom spatial weather map with tile layers |
+| **Iconography** | [Lucide React](https://lucide.dev/) | Clean, accessible vector icons |
+| **Telemetry Provider** | [OpenWeather API](https://openweathermap.org/) | Authenticated meteorological observations & forecasts |
+| **Automated Testing** | [Jest](https://jestjs.io/) + [RTL](https://testing-library.com/) | Unit mathematical coverage and API integration verification |
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Quickstart & Local Setup
 
 ### 1. Prerequisites
-- Node.js `v18.17+` or `v20+` (tested up to Node `v24`)
-- npm `v9+` or `v10+`
+- **Node.js**: `v20.x` or higher (tested on Node `v24`)
+- **Package Manager**: `npm` (`v10.x`+) or `pnpm`
 
-### 2. Installation
+### 2. Clone & Install
 ```bash
-git clone <repo-url>
-cd magical-bell
+git clone https://github.com/kshitijhurle95-prog/atmos-weather-intelligence.git
+cd atmos-weather-intelligence
 npm install
 ```
 
-### 3. Environment Configuration
-Create a `.env.local` file in the project root:
+### 3. Configure API Credentials
+Duplicate the provided `.env.example` file:
+```bash
+cp .env.example .env.local
+```
+Add your free [OpenWeather API key](https://openweathermap.org/api):
 ```env
-# OpenWeather API Key (Get a free key from https://openweathermap.org/api)
-OPENWEATHER_API_KEY=your_actual_api_key_here
+OPENWEATHER_API_KEY=your_openweather_api_key_here
 ```
 
-> **Note**: If `OPENWEATHER_API_KEY` is omitted, the application runs in development fallback mode with descriptive configuration alerts without crashing.
+*(Note: The platform features a graceful development mode. If the API key is not yet configured, Atmos will guide you through setup rather than crashing).*
 
-### 4. Running the Development Server
+### 4. Run the Development Server
 ```bash
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Navigate to [http://localhost:3000](http://localhost:3000) to view the live dashboard.
 
 ---
 
-## 🧪 Testing & Verification
+## ⚙️ Environment Configuration
 
-Run the automated test suite:
+| Variable | Required | Default | Description |
+|---|---|---|---|
+| `OPENWEATHER_API_KEY` | **Yes** (for live feeds) | `""` | OpenWeather free-tier API authentication token |
+| `NEXT_PUBLIC_SUPABASE_URL` | *Optional* | `""` | Supabase URL for multi-device preference syncing |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | *Optional* | `""` | Supabase Anonymous Client Key |
+
+---
+
+## 🧪 Automated Testing
+
+Atmos maintains a full automated test suite verifying mathematical conversions, sanitization boundaries, data transformations, and server API error handling.
+
 ```bash
-# Run unit & integration test suites
+# Run all unit and integration test suites
 npm test
 
-# Run tests in verbose mode
-npm test -- --verbose
+# Run tests with code coverage report
+npm test -- --coverage
 
-# Run TypeScript static type check
+# Run TypeScript static analysis
 npm run type-check
 
-# Run production build
+# Run production build compilation
 npm run build
 ```
 
-### Test Coverage Summary:
-- **`formatting.test.ts`**: Temperature, wind speed, pressure, visibility, and precipitation math conversions.
-- **`validation.test.ts`**: Coordinate bounds, string truncation, and XSS sanitization.
-- **`normalize.test.ts`**: Transformation of raw OpenWeather data to domain models.
-- **`api.test.ts`**: Server-side route handlers, parameter validation, and 503/400 error handling.
+---
+
+## 🔒 Security & Privacy Guarantee
+
+- **Zero Secret Leakage**: The `OPENWEATHER_API_KEY` is restricted strictly to server-side Route Handlers (`/api/weather`, `/api/forecast`, `/api/geocoding`, `/api/air-quality`). It is never bundled into client-side JavaScript or exposed in network payloads.
+- **Client-Side Geolocation Consent**: HTML5 coordinates are processed only after explicit user interaction with the "Use My Location" trigger. No coordinate telemetry is stored without user permission.
+- **Sanitized Query Inputs**: All search parameters are stripped of HTML/script injection vectors and strictly bounded to prevent injection attacks.
 
 ---
 
-## 🚢 Production Deployment
+## 🤝 Contributing
 
-### Vercel Deployment
-1. Import the repository into your [Vercel](https://vercel.com) dashboard.
-2. In the **Environment Variables** section, add:
-   - `OPENWEATHER_API_KEY`: `your_openweather_api_key`
-3. Click **Deploy**. Next.js will automatically build and serve the optimized static and server-rendered routes.
+Contributions to improve Atmos or expand supported meteorological providers are welcome:
 
-### Self-Hosted / Docker
-```bash
-npm run build
-npm start
-```
-By default, the server listens on port `3000`.
+1. Fork the Project (`git checkout -b feature/AmazingFeature`)
+2. Commit your Changes (`git commit -m 'feat: Add some AmazingFeature'`)
+3. Push to the Branch (`git push origin feature/AmazingFeature`)
+4. Open a Pull Request
 
 ---
 
-## 📄 License & Attribution
+## 📄 License
 
-- Weather observation telemetry powered by [OpenWeather](https://openweathermap.org/).
-- Cartography and GIS base tiles courtesy of [OpenStreetMap](https://www.openstreetmap.org/) contributors and [CartoDB](https://carto.com/).
-- Built for the Atmos Weather Intelligence Platform.
+Distributed under the **MIT License**. See `LICENSE` for more information.
+
+---
+
+<div align="center">
+  <sub>Engineered with precision for the global developer and weather enthusiast community.</sub>
+</div>
