@@ -160,6 +160,16 @@ export function formatPrecipitation(
 // Date / time formatting
 // ---------------------------------------------------------------------------
 
+function isValidTimeZone(tz?: string): boolean {
+  if (!tz) return false;
+  try {
+    Intl.DateTimeFormat(undefined, { timeZone: tz });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 /**
  * Format a Date (or ISO string) as a short time string (e.g. "3:45 PM").
  */
@@ -169,13 +179,18 @@ export function formatTime(
   locale = 'en-US',
 ): string {
   const d = typeof date === 'string' ? new Date(date) : date;
+  const validTz = isValidTimeZone(timezone) ? timezone : undefined;
   const options: Intl.DateTimeFormatOptions = {
     hour: 'numeric',
     minute: '2-digit',
     hour12: true,
-    ...(timezone ? { timeZone: timezone } : {}),
+    ...(validTz ? { timeZone: validTz } : {}),
   };
-  return d.toLocaleTimeString(locale, options);
+  try {
+    return d.toLocaleTimeString(locale, options);
+  } catch {
+    return d.toLocaleTimeString(locale);
+  }
 }
 
 /**
@@ -187,12 +202,17 @@ export function formatDate(
   locale = 'en-US',
 ): string {
   const d = typeof date === 'string' ? new Date(date) : date;
+  const validTz = isValidTimeZone(timezone) ? timezone : undefined;
   const options: Intl.DateTimeFormatOptions = {
     month: 'short',
     day: 'numeric',
-    ...(timezone ? { timeZone: timezone } : {}),
+    ...(validTz ? { timeZone: validTz } : {}),
   };
-  return d.toLocaleDateString(locale, options);
+  try {
+    return d.toLocaleDateString(locale, options);
+  } catch {
+    return d.toLocaleDateString(locale);
+  }
 }
 
 /**
@@ -204,6 +224,7 @@ export function formatFullDateTime(
   locale = 'en-US',
 ): string {
   const d = typeof date === 'string' ? new Date(date) : date;
+  const validTz = isValidTimeZone(timezone) ? timezone : undefined;
   const options: Intl.DateTimeFormatOptions = {
     weekday: 'short',
     month: 'short',
@@ -211,9 +232,13 @@ export function formatFullDateTime(
     hour: 'numeric',
     minute: '2-digit',
     hour12: true,
-    ...(timezone ? { timeZone: timezone } : {}),
+    ...(validTz ? { timeZone: validTz } : {}),
   };
-  return d.toLocaleString(locale, options);
+  try {
+    return d.toLocaleString(locale, options);
+  } catch {
+    return d.toLocaleString(locale);
+  }
 }
 
 // ---------------------------------------------------------------------------

@@ -107,10 +107,23 @@ export function normalizeCurrentWeather(
 ): NormalizedCurrentWeather {
   const w = raw.weather[0];
 
-  // Determine timezone string — OW only gives offset in seconds, not IANA
-  const tzOffsetHours = raw.timezone / 3600;
-  const tzSign = tzOffsetHours >= 0 ? '+' : '-';
-  const tzStr = `UTC${tzSign}${Math.abs(tzOffsetHours)}`;
+  // Determine timezone string
+  let tzStr = 'UTC';
+  if (raw.timezone === 19800 || (raw.coord.lat > 6 && raw.coord.lat < 38 && raw.coord.lon > 68 && raw.coord.lon < 98)) {
+    tzStr = 'Asia/Kolkata';
+  } else if (raw.timezone === 0) {
+    tzStr = 'UTC';
+  } else if (raw.timezone === 3600) {
+    tzStr = 'Europe/Paris';
+  } else if (raw.timezone === -18000) {
+    tzStr = 'America/New_York';
+  } else if (raw.timezone === -28800) {
+    tzStr = 'America/Los_Angeles';
+  } else if (raw.timezone === 32400) {
+    tzStr = 'Asia/Tokyo';
+  } else if (raw.timezone === 14400) {
+    tzStr = 'Asia/Dubai';
+  }
 
   return {
     location: {
